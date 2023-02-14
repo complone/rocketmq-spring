@@ -446,6 +446,7 @@ public class RocketMQTemplate extends AbstractMessageSendingTemplate<String> imp
                 };
             }
             if (Objects.isNull(hashKey) || hashKey.isEmpty()) {
+                // replace
                 producer.request(rocketMsg, requestCallback, timeout);
             } else {
                 producer.request(rocketMsg, messageQueueSelector, hashKey, requestCallback, timeout);
